@@ -1,0 +1,69 @@
+
+      <div class="row" ng-controller="projectCtrl">
+        <div class="col-lg-12">
+          <h1>Virtual Instrument</h1>
+        </div>
+        <div class="col-lg-8">
+          <article>
+            <p>
+              Human-Computer Interaction (HCI) has became an important part inside computer-related industry thanks to the fast-pace evolution of digital camera and depth sensors. This project capture user’s motion via IR sender/receiver, and developed different virtual instruments. Microsoft Kinect was designed for PlayStation gaming console’s motion games, but itself is combined normal Webcam with IR sender/receiver, transmit signals of all sensors to computer or gaming console, and let the program to do tricks with the data. We designed the program to receive and process data obtained by Kinect, transform user’s motion and gestures into commands, sending different Midi signals, and after applying different increment sound to the Midi signals, we got our virtual instruments. The method of playing our program is orientated from real instruments, and it’s as if user is play instrument with imagination, so we named it Virtual Instrument.
+            </p>
+            <br>
+            <p>
+              The Microsoft Kinect we used back then was sending image data in the speed of 30 frame per second(fps), which contained a RGB colored image and an image received by IR receiver. Kinect has other hardware inside it like microphone array and head-turning motors, but we didn’t emphasis on those hardware. Using OpenNI2 to receive the data transmitted from Kinect,and combining OpenCV, OpenGL, and C++, we draw human body on the program interface. Kinect can obtain total of 24 joints from one user, after calculating the joint coordinates’ difference in each frames, we define what the user is trying to do, and send the corresponding Midi signals. By applying Virtual Studio technology(VST) on the Midi signals generated from C++ and RtMidi, the computer speakers will then play the sound that user is trying to play. Everything above was executed at real-time, and users using different Virtual Instruments can play along each other.
+            </p>
+            <br>
+              <p>
+                Please watch the demos below!
+              </p>
+            <button id="button1">Demo 1</button>
+            <button id="button2">Demo 2</button>
+            <button id="button3">Demo 3</button>
+            <button id="button4">Demo 4</button>
+            <br>
+            <br>
+            <iframe id="videoiframe" width="0" height="0" frameBorder="0"></iframe>
+            <br>
+            <p>Credits:</p>
+            <a style="font-size: 12px;" href="https://www.youtube.com/user/KevinC0213" target="_blank">Yu Kai Chiu(邱昱愷)</a>
+            <br>
+            <a style="font-size: 12px;" href="http://mine.csie.ncu.edu.tw/core/en/2010-Undergraduate" target="_blank">Che Wei Li(黎哲瑋)</a> 
+            <br>
+            <a style="font-size: 12px;" href="http://mine.csie.ncu.edu.tw/core/en/2010-Undergraduate" target="_blank">Pu Sheng Wang(王菩生)</a> 
+            <br>
+            <a style="font-size: 12px;" href="http://mine.csie.ncu.edu.tw/core/en/2010-Undergraduate" target="_blank">Pei-Hua Lin(林沛樺)</a>
+            <br>
+            <a style="font-size: 12px;" href="http://mine.csie.ncu.edu.tw/core/en/2012-master" target="_blank">Allen Hsu(許木炘)</a> 
+            <br>
+            <a style="font-size: 12px;" href="http://mine.csie.ncu.edu.tw/core/en/2013-master" target="_blank">Ting-Kuo Lin(林鼎國)</a> 
+            <br>
+            <a style="font-size: 12px;" href="http://mine.csie.ncu.edu.tw/core/en/2013-master" target="_blank">Chia-Ching Huang(黃嘉慶)</a> 
+            <br>
+            <a style="font-size: 12px;" href="http://mine.csie.ncu.edu.tw/core/en/2011-phd" target="_blank">Sica Hon-Hang Chang(張閎翰)</a>
+            <br>
+          </article>
+        </div>
+        <div class="col-lg-3 col-lg-offset-1 side">
+          <div class="info">
+            <h3>What I've done</h3>
+            <span class="small">Built a Virtual Instrument <i>Guitar</i>, based on OpenNI2 and OpenCV.</span>
+          </div>
+          <div class="info">
+            <h3>Awards</h3>
+            <span class="small">In February 2014, Virtual Instrument has been elected by professors as the winner of <a class="nml" href="http://csie.ncu.cc/show.php?cate=35&mode=view&pno=4937" target="_blank">Annual project competition</a></span>
+          </div>
+          <div class="info">
+            <h3>Keywords</h3>
+            <span class="small">
+              <span class="label label-default">HCI</span>
+              <span class="label label-default">Human-Computer Interaction</span>
+              <span class="label label-default">Kinect</span>
+              <span class="label label-default">OpenNI</span>
+              <span class="label label-default">OpenCV</span>
+              <span class="label label-default">OpenGL</span>
+              <span class="label label-default">Gesture</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    

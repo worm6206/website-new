@@ -1,0 +1,158 @@
+<div class="row">
+	<h1><span>D3.JS Project</span></h1>
+</div>
+<hr>
+<!-- INTRO -->
+<div class="row">
+	<div class="col-lg-10">
+	<h4>Intro</h4>
+		<p>
+			<a href="https://d3js.org/" target="_blank">D3.js</a> is a JavaScript library that allows developers to create interactive data visualization graphs. D3 draws objects with SVG, and CSS as layout design. This project is about developing the potential features that D3 can bring. This project uses languages including <b>JavaScript</b>, <b>SQL</b>, <b>PHP</b>, <b>HTML</b>, and <b>CSS</b>. With d3 at the front end, I'm using <a href="http://www.seanlahman.com/baseball-archive/statistics/" target="_blank">Lahman’s Baseball Database</a> as data source. In short, it is a database of MLB statistics from 1871 to 2014 and it updates every year. However the statistics are not game-by-game but year-end conclusion. Despite not being extremely detailed, there are still a lot of stories to be discovered from this database. Below are some examples I've made with some description along side.
+		</p>
+	</div>
+	<div class="col-lg-2">
+		<a href="http://www.kevinyen.net/d3/" class="btn btn-default btn-lg btn-block" target="_blank"><i class="fa fa-camera-retro fa-lg"></i> Gallery</a>
+	</div>
+</div>
+<hr>
+<!-- DEMO 5 -->
+<div class="row">
+	<div class="col-lg-10">
+		<h4>Example 1 : 1871 to 2014 US Players Birth States</h4>
+		<p>
+			This is a graph showing where MLB players' hometowns are from 1871 to 2014. With the US map drew with same color, we can immediately see the California seems to be the darkest, with New York and Pennsylvanian being dark also. Further more, hover mouse onto each states will show the actually player count from data.
+		</p>
+		<object data="templates/d3/5.html" width="100%" height="600" style="border:1px solid grey"></object>
+		<a target="_blank" href="http://www.kevinyen.net/d3/5.html"><span class="btn btn-primary btn-xs">Raw Data</span></a>
+		<a href="statics/BirthContryGeomap.twb" download><span class="btn btn-primary btn-xs">Download Tableau version of this</span></a>
+	</div>
+	<div class="col-lg-2">
+		<h3>Notes</h3>
+			This demo uses another additional library that is based on D3.js. DataMaps. It allows user(me) to draw graphs of the world or US only, then distribute data around the map. This is not the only library with this feature, but I chose this because I was at the very beginning of learning d3 and this is a easy yet powerful library to use.
+			<a href="http://datamaps.github.io/" target="_blank">http://datamaps.github.io/</a>
+	</div>
+</div>
+<hr>
+<!-- DEMO 6 -->
+<div class="row">
+	<div class="col-lg-10">
+		<h4>Example 2 : Team Salary Comparison</h4>
+		<p>
+			This is a visualization showing the growth of team salary sum from 1985 to 2014. We can see that back in 1980s, teams seems to have similar amount of salary sum. However when it comes to 1990s, teams are paying more to players. At 2000, New York Yankees went off the sky. This graph is extremely interesting, as you can see how LA Dodgers team salary doubled from 2012 to 2013. Oakland Athletics, the team of the book and movie Moneyball, has been lower than most of the league. Hover mouse on to a team, so you can see better where the line is going.
+		</p>
+		<object data="templates/d3/6.html" width="100%" height="600" style="border:1px solid grey"></object>
+		<a target="_blank" href="/#/csv?data6s"><span class="btn btn-primary btn-xs">Raw Data</span></a>
+		<a href="statics/SalaryStacked.twb" download><span class="btn btn-primary btn-xs">Download Tableau version of this</span></a>
+	</div>
+	<div class="col-lg-2">
+		<h3>Notes</h3>
+		This demo is using C3.js, a library based on D3.js. Different from D3, C3 requires little coding and then generates a interactive graph. C3 is powerful, a group of data can be hidden by clicking the legend. Developer can customize some of C3's functionality as well.
+		<a href="http://c3js.org/" target="_blank">http://c3js.org/</a>
+	</div>
+</div>
+<hr>
+<!-- DEMO 7 -->
+<div class="row">
+	<div class="col-lg-10">
+		<h4>Example 3 : 1977 - 2014 League Batting Average Boxplot in ‰</h4>
+		<p>
+			This is a graph telling an interesting story - the batting average in MLB from 1977 to this day, has not changed a bit. How is that interesting? To me, this means that the battle between pitcher and batter, is being extremely balanced. However, there are some interesting questions to be asked.
+			<ul>
+				<li><p>There is a high point at 1995, who or what caused that?</p></li>
+				<li><p>Batter seems to be performing poorly during 2009 to 2013 while few years back batters are doing extremely stable, what has happened?</p></li>
+				<li><p>The average of hit percentage has been dropping ever since 2006, what is causing that, and will this drop continue?</p></li>
+			</ul>
+			
+		</p>
+		<object data="templates/d3/7.html" width="100%" height="600" style="border:1px solid grey"></object>
+		<a target="_blank" href="/#/csv?data7"><span class="btn btn-primary btn-xs">Raw Data</span></a>
+		<a href="statics/BattingAverage.twb" download><span class="btn btn-primary btn-xs">Download Tableau version of this</span></a>
+	</div>
+	<div class="col-lg-2">
+		<h3>Notes</h3>
+		This visualization is a little bit challenging. Every year, is a single graph, so here is a combination of 38 graphs. The challenge is adding information to every single box plot, because one would cover another. As you can see the x-axis label is covered by each other. There should be simple solution to this, e.g., background opacity->0.1 or draw label on top of every graph, but then the challenge would be scalability. When there are more data than current, box plot would just break line like characters do, and it's hard to cover this case by drawing on top layer, so I let it stayed as is.
+	</div>
+</div>
+<hr>
+<!-- DEMO 12 -->
+<div class="row">
+	<div class="col-lg-10">
+		<h4>Example 4 : Batter performance vs Salary</h4>
+		<p>
+			This visualization combines two similar graphs into one, and link their interactions together so user can observe from both graphs. The top graph is Salary of the players, and the bottom graph is the performance of players, measured using BR. The computation of BR is related to every statistics given, e.g., runs, hits, doubles, stolen bases, intentional walks, hit by pitch, etc. Further more, the average performance player's BR is 0, so doing better than average is positive, doing worse than average is below zero.
+		</p>
+		<p>
+			The graph is selecting New York Yankees as default, since there are more interesting stories here. Hovering over the points of either graph will show the detail of that point, and highlight that player throughout the graph. First I found A.Rod by hovering the most expensive player from 2008 to 2013. It's not easy to observe the trend of A.Rod since some dot of his is covered by his teammates. Click a dot will isolate a player from the team on both graphs, and show his dots on other teams as well. By isolating A.Rod, I see that he was on Seattle Mariners and Texas Rangers. Back to when he was at SEA, his performance was fluctuating, and salary is growing slowly. After transfered to TEX, he had three years of stable performance while being paid really nice. The stable performance may have lead him to NYY, and his salary grew, but his performance was first good but unstable, then steadily drop throughout the years while his salary remain high.
+		</p>
+		<p>
+			Then I went on to find Jeter who has retired from MLB, and this graph may have a good reason for that. Jeter's salary grew while his performance was above the average, 40~20. At 2010, Jeter's salary had a big drop, very likely caused by his performance drop during 2009-2010 season. From 2010 to 2012 Jeter had been performing above average at 10 BR, and his salary was raised as well. At 2013, Jeter had a below average BR, -3. At 2014, even worse ,-17. Then Jeter retired.
+		</p>
+		<object data="templates/d3/12.html" width="100%" height="600" style="border:1px solid grey"></object>
+		<a target="_blank" href="/#/csv?ALL"><span class="btn btn-primary btn-xs">Raw Data</span></a>
+		<a href="statics/BR-Salary.twb" download><span class="btn btn-primary btn-xs">Download Tableau version of this</span></a>
+	</div>
+	<div class="col-lg-2">
+		<h3>Notes</h3>
+		In this demo, I implement mouse events by combining d3 codes <code>.on("click")</code>, <code>.on("mouseover")</code>, and <code>.on("mouseout")</code> with Javascrpt functions. User may mouse their mouse over any point, and a tooltip for more information will show up. Besides tooltip, I’ve also added features that would be triggered by clicking mouse on any points. This view we call it “Player Isolation”, in which user can easily see how a player is performing and how much he’s paid throughout the years. Player Isolation shows not only his records on current selected team, but also every team he has been on. 
+			
+	</div>
+</div>
+<hr>
+<!-- OUTRO -->
+<div class="row">
+	<div class="col-lg-10">
+	<h4>Outro</h4>
+		<p>
+			Overall d3 has definitely attracts people to interact with the visualizations, and therefore acknowledge more than a static graph would do. One of my goals is to make visualization seems very usual and natural, as if what user imaging the graph should be capable of, I would try to realize that imagination. This project is not yet finished, and will update the gallery when there are more to show. 
+			<p class="text-right">Kevin Yen</p>
+		</p>
+	</div>
+</div>
+<hr>
+<!-- Other -->
+<div class="row">
+	<div class="col-lg-10">
+	<h4>Extra 1 : Calendar View</h4>
+	<p>
+		This graph can be used to spot high frequency distribution of a given dataset. From this demo, around October 2008 there's a pile of high frequency marked with dark red, and lasts till March 2009 to calm.
+	</p>
+		<object data="templates/d3/a1.html" width="100%" height="600" style="border:1px solid grey"></object>
+	</div>
+	<div class="col-lg-2">
+		<h3>Notes</h3>
+		This is a demo from <a href="http://bl.ocks.org/mbostock/raw/4063318/" target="_blank">Mike Bostock</a>.
+			
+	</div>
+</div>
+<hr>
+<!-- Other -->
+<div class="row">
+	<div class="col-lg-10">
+	<h4>Extra 2 : Choropleth</h4>
+	<p>
+		This graph has more detail than previous demo. This area partition technique has partitioned each states into smaller area.
+	</p>
+		<object data="templates/d3/a2.html" width="100%" height="600" style="border:1px solid grey"></object>
+	</div>
+	<div class="col-lg-2">
+		<h3>Notes</h3>
+		This is a demo from <a href="http://bl.ocks.org/mbostock/raw/4060606/" target="_blank">Mike Bostock</a>.
+			
+	</div>
+</div>
+<hr>
+<!-- Other -->
+<div class="row">
+	<div class="col-lg-10">
+	<h4>Extra 3 : Difference Chart</h4>
+	<p>
+		This graph allows user to easily recognize the relationship between two lines, and the area between the lines denotes how big of a difference it is.
+	</p>
+		<object data="templates/d3/a3.html" width="100%" height="600" style="border:1px solid grey"></object>
+	</div>
+	<div class="col-lg-2">
+		<h3>Notes</h3>
+		This is a demo from <a href="http://bl.ocks.org/mbostock/raw/3894205/" target="_blank">Mike Bostock</a>.
+			
+	</div>
+</div>

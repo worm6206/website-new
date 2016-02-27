@@ -1,0 +1,26 @@
+  
+    <script src="templates/d3/jquery.csvToTable.js"></script>
+    <script>
+    var path = window.location.href;
+    var num = path.indexOf("?");
+    num++;
+    var path2 = [];
+    for (var j = 0; j < path.length - num; j++) {
+        path2[j] = path[j + num];
+    }
+    path = null;
+    path = path2.join("");
+
+    $(function() {
+        $('#CSVTable').CSVToTable('templates/d3/' + path + '.csv', { loadingImage: 'images/loading.gif', startLine: 0 });
+        // $.get('test.tsv', function(data) {
+        //     $('#TSVSource').html('<pre>' + data + '</pre>');
+        // });
+        // $('#TSVTable').CSVToTable('test.tsv', { loadingText: 'Loading TSV Data...', loadingImage: 'images/loading.gif', startLine: 0, separator: "\t" });
+    });
+    </script>
+<div class="row">
+    <h4>CSV Raw Data</h4>
+    <div id="CSVTable"></div>
+</div>
+

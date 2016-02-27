@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+<meta charset="utf-8">
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="box7.js"></script>
+<style>
+
+body {
+  /*font-family: "Helvetica Neue", Helvetica, sans-serif;*/
+  margin: 10px;
+  /*position: relative;*/
+  /*tab-size: 2;*/
+  /*width: 960px;*/
+}
+
+
+.box {
+  font: 10px sans-serif;
+  text-shadow:
+   -1px -1px 0 #FFF,  
+    1px -1px 0 #FFF,
+    -1px 1px 0 #FFF,
+     1px 1px 0 #FFF;
+}
+
+.box line,
+.box rect {
+  fill: #B2CCFF;
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+.box .center {
+  stroke-dasharray: 3,3;
+}
+
+.box .outlier {
+  fill: none;
+  stroke: #ccc;
+}
+.boxes{
+  position: absolute;
+  top: 0;
+}
+
+</style>
+<body>
+<div id="boxes"></div>
+<script>
+
+var margin = {top: 10, right: 2, bottom: 20, left: 3},
+    width = window.innerWidth/50,
+    height = window.innerHeight - 70;
+
+var min = Infinity,
+    max = -Infinity;
+
+var chart = d3.box()
+    .whiskers(iqr(1.5))
+    .width(width)
+    .height(height);
+   
+
+d3.csv("data7.csv", function(error, csv) {
+  var data = [];
+  var inte = 0;
+
+  csv.forEach(function(x) {
+    var e = Math.floor(x.Expt - 1),
+        //r = Math.floor(x.Run - 1),
+        s = Math.floor(x.Hit),
+        d = data[e];
+    if (!d) d = data[e] = [s];
+    else d.push(s);
+    if (s > max) max = s;
+    if (s < min) min = s;
+  });
+  chart.domain([0, 500]);
+  var x = d3.scale.identity()
+      .domain([0, 900])
+  var xAxis = d3.svg.axis()
+      .scale(x)
+      .tickValues(x.domain())
+      .orient("bottom");
+
+
+  var svg = d3.select("#boxes").selectAll("svg")
+      .data(data)
+    .enter().append("svg")
+      .attr("class", "box")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.bottom + margin.top)
+    .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+      .call(chart);
+  // svg.append("g")
+  //   .append("text")
+  //     .text(inte);
+
+  // setInterval(function() {
+  //   svg.datum(randomize).call(chart.duration(1000));
+  // }, 2000);
+});
+
+// Returns a function to compute the interquartile range.
+function iqr(k) {
+  return function(d, i) {
+    var q1 = d.quartiles[0],
+        q3 = d.quartiles[2],
+        iqr = (q3 - q1) * k,
+        i = -1,
+        j = d.length;
+    while (d[++i] < q1 - iqr);
+    while (d[--j] > q3 + iqr);
+    return [i, j];
+  };
+}
+</script>
+</body>

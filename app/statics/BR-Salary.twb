@@ -1,0 +1,1424 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 9200.16.0201.1945                                -->
+<workbook source-platform='mac' version='9.2' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='Batting (lahman)' inline='true' name='mysql.0dzlkny0i5hptz16ypdjs0nq1qbg' version='9.2'>
+      <connection class='mysql' dbname='lahman' odbc-native-protocol='yes' port='3306' server='kevinyen.net' source-charset='' username='lahmanread'>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[Batting].[playerID]' />
+              <expression op='[Master].[playerID]' />
+            </expression>
+          </clause>
+          <relation join='inner' type='join'>
+            <clause type='join'>
+              <expression op='AND'>
+                <expression op='='>
+                  <expression op='[Batting].[yearID]' />
+                  <expression op='[Salaries].[yearID]' />
+                </expression>
+                <expression op='='>
+                  <expression op='[Batting].[playerID]' />
+                  <expression op='[Salaries].[playerID]' />
+                </expression>
+                <expression op='='>
+                  <expression op='[Batting].[teamID]' />
+                  <expression op='[Salaries].[teamID]' />
+                </expression>
+              </expression>
+            </clause>
+            <relation name='Batting' table='[Batting]' type='table' />
+            <relation name='Salaries' table='[Salaries]' type='table' />
+          </relation>
+          <relation name='Master' table='[Master]' type='table' />
+        </relation>
+        <cols>
+          <map key='[2B]' value='[Batting].[2B]' />
+          <map key='[3B]' value='[Batting].[3B]' />
+          <map key='[AB]' value='[Batting].[AB]' />
+          <map key='[BB]' value='[Batting].[BB]' />
+          <map key='[BR]' value='[Batting].[BR]' />
+          <map key='[CS]' value='[Batting].[CS]' />
+          <map key='[GIDP]' value='[Batting].[GIDP]' />
+          <map key='[G]' value='[Batting].[G]' />
+          <map key='[G_batting]' value='[Batting].[G_batting]' />
+          <map key='[G_old]' value='[Batting].[G_old]' />
+          <map key='[HBP]' value='[Batting].[HBP]' />
+          <map key='[HR]' value='[Batting].[HR]' />
+          <map key='[H]' value='[Batting].[H]' />
+          <map key='[IBB]' value='[Batting].[IBB]' />
+          <map key='[RBI]' value='[Batting].[RBI]' />
+          <map key='[R]' value='[Batting].[R]' />
+          <map key='[SB]' value='[Batting].[SB]' />
+          <map key='[SF]' value='[Batting].[SF]' />
+          <map key='[SH]' value='[Batting].[SH]' />
+          <map key='[SO]' value='[Batting].[SO]' />
+          <map key='[bats]' value='[Master].[bats]' />
+          <map key='[bbrefID]' value='[Master].[bbrefID]' />
+          <map key='[birthCity]' value='[Master].[birthCity]' />
+          <map key='[birthCountry]' value='[Master].[birthCountry]' />
+          <map key='[birthDay]' value='[Master].[birthDay]' />
+          <map key='[birthMonth]' value='[Master].[birthMonth]' />
+          <map key='[birthState]' value='[Master].[birthState]' />
+          <map key='[birthYear]' value='[Master].[birthYear]' />
+          <map key='[deathCity]' value='[Master].[deathCity]' />
+          <map key='[deathCountry]' value='[Master].[deathCountry]' />
+          <map key='[deathDay]' value='[Master].[deathDay]' />
+          <map key='[deathMonth]' value='[Master].[deathMonth]' />
+          <map key='[deathState]' value='[Master].[deathState]' />
+          <map key='[deathYear]' value='[Master].[deathYear]' />
+          <map key='[debut]' value='[Master].[debut]' />
+          <map key='[finalGame]' value='[Master].[finalGame]' />
+          <map key='[height]' value='[Master].[height]' />
+          <map key='[lgID (Salaries)]' value='[Salaries].[lgID]' />
+          <map key='[lgID]' value='[Batting].[lgID]' />
+          <map key='[nameFirst]' value='[Master].[nameFirst]' />
+          <map key='[nameGiven]' value='[Master].[nameGiven]' />
+          <map key='[nameLast]' value='[Master].[nameLast]' />
+          <map key='[playerID (Master)]' value='[Master].[playerID]' />
+          <map key='[playerID (Salaries)]' value='[Salaries].[playerID]' />
+          <map key='[playerID]' value='[Batting].[playerID]' />
+          <map key='[retroID]' value='[Master].[retroID]' />
+          <map key='[salary]' value='[Salaries].[salary]' />
+          <map key='[stint]' value='[Batting].[stint]' />
+          <map key='[teamID (Salaries)]' value='[Salaries].[teamID]' />
+          <map key='[teamID]' value='[Batting].[teamID]' />
+          <map key='[throws]' value='[Master].[throws]' />
+          <map key='[weight]' value='[Master].[weight]' />
+          <map key='[yearID (Salaries)]' value='[Salaries].[yearID]' />
+          <map key='[yearID]' value='[Batting].[yearID]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>playerID</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[playerID]</local-name>
+            <parent-name>[Batting]</parent-name>
+            <remote-alias>playerID</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>9</width>
+            <contains-null>false</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>yearID</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[yearID]</local-name>
+            <parent-name>[Batting]</parent-name>
+            <remote-alias>yearID</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>stint</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[stint]</local-name>
+            <parent-name>[Batting]</parent-name>
+            <remote-alias>stint</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>teamID</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[teamID]</local-name>
+            <parent-name>[Batting]</parent-name>
+            <remote-alias>teamID</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>3</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>lgID</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[lgID]</local-name>
+            <parent-name>[Batting]</parent-name>
+            <remote-alias>lgID</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>G</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[G]</local-name>
+            <parent-name>[Batting]</parent-name>
+            <remote-alias>G</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>G_batting</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[G_batting]</local-name>
+            <parent-name>[Batting]</parent-name>
+            <remote-alias>G_batting</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>AB</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[AB]</local-name>
+            <parent-name>[Batting]</parent-name>
+            <remote-alias>AB</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>R</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[R]</local-name>
+            <parent-name>[Batting]</parent-name>
+            <remote-alias>R</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>H</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[H]</local-name>
+            <parent-name>[Batting]</parent-name>
+            <remote-alias>H</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>2B</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[2B]</local-name>
+            <parent-name>[Batting]</parent-name>
+            <remote-alias>2B</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>3B</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[3B]</local-name>
+            <parent-name>[Batting]</parent-name>
+            <remote-alias>3B</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>HR</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[HR]</local-name>
+            <parent-name>[Batting]</parent-name>
+            <remote-alias>HR</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>RBI</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[RBI]</local-name>
+            <parent-name>[Batting]</parent-name>
+            <remote-alias>RBI</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SB</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[SB]</local-name>
+            <parent-name>[Batting]</parent-name>
+            <remote-alias>SB</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>CS</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[CS]</local-name>
+            <parent-name>[Batting]</parent-name>
+            <remote-alias>CS</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>BB</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[BB]</local-name>
+            <parent-name>[Batting]</parent-name>
+            <remote-alias>BB</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SO</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[SO]</local-name>
+            <parent-name>[Batting]</parent-name>
+            <remote-alias>SO</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>IBB</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[IBB]</local-name>
+            <parent-name>[Batting]</parent-name>
+            <remote-alias>IBB</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>HBP</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[HBP]</local-name>
+            <parent-name>[Batting]</parent-name>
+            <remote-alias>HBP</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SH</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[SH]</local-name>
+            <parent-name>[Batting]</parent-name>
+            <remote-alias>SH</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>SF</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[SF]</local-name>
+            <parent-name>[Batting]</parent-name>
+            <remote-alias>SF</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>GIDP</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[GIDP]</local-name>
+            <parent-name>[Batting]</parent-name>
+            <remote-alias>GIDP</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>G_old</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[G_old]</local-name>
+            <parent-name>[Batting]</parent-name>
+            <remote-alias>G_old</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>BR</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[BR]</local-name>
+            <parent-name>[Batting]</parent-name>
+            <remote-alias>BR</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>yearID</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[yearID (Salaries)]</local-name>
+            <parent-name>[Salaries]</parent-name>
+            <remote-alias>yearID</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>false</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>teamID</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[teamID (Salaries)]</local-name>
+            <parent-name>[Salaries]</parent-name>
+            <remote-alias>teamID</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>3</width>
+            <contains-null>false</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>lgID</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[lgID (Salaries)]</local-name>
+            <parent-name>[Salaries]</parent-name>
+            <remote-alias>lgID</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2</width>
+            <contains-null>false</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>playerID</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[playerID (Salaries)]</local-name>
+            <parent-name>[Salaries]</parent-name>
+            <remote-alias>playerID</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>9</width>
+            <contains-null>false</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>salary</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[salary]</local-name>
+            <parent-name>[Salaries]</parent-name>
+            <remote-alias>salary</remote-alias>
+            <ordinal>33</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>53</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DOUBLE&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>playerID</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[playerID (Master)]</local-name>
+            <parent-name>[Master]</parent-name>
+            <remote-alias>playerID</remote-alias>
+            <ordinal>38</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>10</width>
+            <contains-null>false</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>birthYear</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[birthYear]</local-name>
+            <parent-name>[Master]</parent-name>
+            <remote-alias>birthYear</remote-alias>
+            <ordinal>39</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>birthMonth</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[birthMonth]</local-name>
+            <parent-name>[Master]</parent-name>
+            <remote-alias>birthMonth</remote-alias>
+            <ordinal>40</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>birthDay</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[birthDay]</local-name>
+            <parent-name>[Master]</parent-name>
+            <remote-alias>birthDay</remote-alias>
+            <ordinal>41</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>birthCountry</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[birthCountry]</local-name>
+            <parent-name>[Master]</parent-name>
+            <remote-alias>birthCountry</remote-alias>
+            <ordinal>42</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>birthState</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[birthState]</local-name>
+            <parent-name>[Master]</parent-name>
+            <remote-alias>birthState</remote-alias>
+            <ordinal>43</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>birthCity</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[birthCity]</local-name>
+            <parent-name>[Master]</parent-name>
+            <remote-alias>birthCity</remote-alias>
+            <ordinal>44</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>deathYear</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[deathYear]</local-name>
+            <parent-name>[Master]</parent-name>
+            <remote-alias>deathYear</remote-alias>
+            <ordinal>45</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>deathMonth</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[deathMonth]</local-name>
+            <parent-name>[Master]</parent-name>
+            <remote-alias>deathMonth</remote-alias>
+            <ordinal>46</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>deathDay</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[deathDay]</local-name>
+            <parent-name>[Master]</parent-name>
+            <remote-alias>deathDay</remote-alias>
+            <ordinal>47</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>deathCountry</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[deathCountry]</local-name>
+            <parent-name>[Master]</parent-name>
+            <remote-alias>deathCountry</remote-alias>
+            <ordinal>48</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>deathState</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[deathState]</local-name>
+            <parent-name>[Master]</parent-name>
+            <remote-alias>deathState</remote-alias>
+            <ordinal>49</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>2</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>deathCity</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[deathCity]</local-name>
+            <parent-name>[Master]</parent-name>
+            <remote-alias>deathCity</remote-alias>
+            <ordinal>50</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>nameFirst</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[nameFirst]</local-name>
+            <parent-name>[Master]</parent-name>
+            <remote-alias>nameFirst</remote-alias>
+            <ordinal>51</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>nameLast</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[nameLast]</local-name>
+            <parent-name>[Master]</parent-name>
+            <remote-alias>nameLast</remote-alias>
+            <ordinal>52</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>50</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>nameGiven</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[nameGiven]</local-name>
+            <parent-name>[Master]</parent-name>
+            <remote-alias>nameGiven</remote-alias>
+            <ordinal>53</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>255</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>weight</remote-name>
+            <remote-type>3</remote-type>
+            <local-name>[weight]</local-name>
+            <parent-name>[Master]</parent-name>
+            <remote-alias>weight</remote-alias>
+            <ordinal>54</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>10</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_INTEGER&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_SLONG&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>height</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[height]</local-name>
+            <parent-name>[Master]</parent-name>
+            <remote-alias>height</remote-alias>
+            <ordinal>55</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>53</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_DOUBLE&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_DOUBLE&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>bats</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[bats]</local-name>
+            <parent-name>[Master]</parent-name>
+            <remote-alias>bats</remote-alias>
+            <ordinal>56</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>throws</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[throws]</local-name>
+            <parent-name>[Master]</parent-name>
+            <remote-alias>throws</remote-alias>
+            <ordinal>57</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>1</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>debut</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[debut]</local-name>
+            <parent-name>[Master]</parent-name>
+            <remote-alias>debut</remote-alias>
+            <ordinal>58</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>finalGame</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[finalGame]</local-name>
+            <parent-name>[Master]</parent-name>
+            <remote-alias>finalGame</remote-alias>
+            <ordinal>59</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_TYPE_TIMESTAMP&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_TYPE_TIMESTAMP&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>retroID</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[retroID]</local-name>
+            <parent-name>[Master]</parent-name>
+            <remote-alias>retroID</remote-alias>
+            <ordinal>60</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>9</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>bbrefID</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[bbrefID]</local-name>
+            <parent-name>[Master]</parent-name>
+            <remote-alias>bbrefID</remote-alias>
+            <ordinal>61</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>9</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LROOT' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;SQL_WVARCHAR&quot;</attribute>
+              <attribute datatype='string' name='DebugWireType'>&quot;SQL_C_WCHAR&quot;</attribute>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='DateFixed' datatype='datetime' name='[Calculation_72690968838348800]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='DATEPARSE(&quot;d/M/y&quot;,&quot;1/1/&quot;+STR([yearID]))' />
+      </column>
+      <column caption='Gidp' datatype='integer' name='[GIDP]' role='measure' type='quantitative' />
+      <column caption='G batting' datatype='integer' name='[G_batting]' role='measure' type='quantitative' />
+      <column caption='G old' datatype='integer' name='[G_old]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Bats' datatype='string' name='[bats]' role='dimension' type='nominal' />
+      <column caption='Bbref ID' datatype='string' name='[bbrefID]' role='dimension' type='nominal' />
+      <column caption='Birth City' datatype='string' name='[birthCity]' role='dimension' type='nominal' />
+      <column caption='Birth Country' datatype='string' name='[birthCountry]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column caption='Birth Day' datatype='integer' name='[birthDay]' role='dimension' type='quantitative' />
+      <column caption='Birth Month' datatype='integer' name='[birthMonth]' role='dimension' type='quantitative' />
+      <column caption='Birth State' datatype='string' name='[birthState]' role='dimension' type='nominal' />
+      <column caption='Birth Year' datatype='integer' name='[birthYear]' role='dimension' type='quantitative' />
+      <column caption='Death City' datatype='string' name='[deathCity]' role='dimension' type='nominal' />
+      <column caption='Death Country' datatype='string' name='[deathCountry]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column caption='Death Day' datatype='integer' name='[deathDay]' role='dimension' type='quantitative' />
+      <column caption='Death Month' datatype='integer' name='[deathMonth]' role='dimension' type='quantitative' />
+      <column caption='Death State' datatype='string' name='[deathState]' role='dimension' type='nominal' />
+      <column caption='Death Year' datatype='integer' name='[deathYear]' role='dimension' type='quantitative' />
+      <column caption='Debut' datatype='datetime' name='[debut]' role='dimension' type='ordinal' />
+      <column caption='Final Game' datatype='datetime' name='[finalGame]' role='dimension' type='ordinal' />
+      <column caption='Height' datatype='real' name='[height]' role='measure' type='quantitative' />
+      <column caption='Lg ID' datatype='string' name='[lgID]' role='dimension' type='nominal' />
+      <column caption='Name First' datatype='string' name='[nameFirst]' role='dimension' type='nominal' />
+      <column caption='Name Given' datatype='string' name='[nameGiven]' role='dimension' type='nominal' />
+      <column caption='Name Last' datatype='string' name='[nameLast]' role='dimension' type='nominal' />
+      <column caption='Player ID' datatype='string' name='[playerID]' role='dimension' type='nominal' />
+      <column caption='Retro ID' datatype='string' name='[retroID]' role='dimension' type='nominal' />
+      <column caption='Salary' datatype='real' name='[salary]' role='measure' type='quantitative' />
+      <column caption='Stint' datatype='integer' name='[stint]' role='measure' type='quantitative' />
+      <column caption='Team ID' datatype='string' name='[teamID]' role='dimension' type='nominal' />
+      <column caption='Throws' datatype='string' name='[throws]' role='dimension' type='nominal' />
+      <column caption='Weight' datatype='integer' name='[weight]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[yearID (Salaries)]' role='dimension' type='ordinal' />
+      <column caption='Year ID' datatype='integer' name='[yearID]' role='dimension' type='ordinal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.306832' measure-ordering='alphabetic' measure-percentage='0.693168' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <field-sort-info field-sort-order-type='custom-order'>
+        <field-sort-custom-order field='playerID' />
+        <field-sort-custom-order field='yearID' />
+        <field-sort-custom-order field='Calculation_72690968838348800' />
+        <field-sort-custom-order field='stint' />
+        <field-sort-custom-order field='teamID' />
+        <field-sort-custom-order field='lgID' />
+        <field-sort-custom-order field='G' />
+        <field-sort-custom-order field='G_batting' />
+        <field-sort-custom-order field='AB' />
+        <field-sort-custom-order field='R' />
+        <field-sort-custom-order field='H' />
+        <field-sort-custom-order field='2B' />
+        <field-sort-custom-order field='3B' />
+        <field-sort-custom-order field='HR' />
+        <field-sort-custom-order field='RBI' />
+        <field-sort-custom-order field='SB' />
+        <field-sort-custom-order field='CS' />
+        <field-sort-custom-order field='BB' />
+        <field-sort-custom-order field='SO' />
+        <field-sort-custom-order field='IBB' />
+        <field-sort-custom-order field='HBP' />
+        <field-sort-custom-order field='SH' />
+        <field-sort-custom-order field='SF' />
+        <field-sort-custom-order field='GIDP' />
+        <field-sort-custom-order field='G_old' />
+        <field-sort-custom-order field='BR' />
+      </field-sort-info>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Batting (lahman)' name='mysql.0dzlkny0i5hptz16ypdjs0nq1qbg' />
+          </datasources>
+          <datasource-dependencies datasource='mysql.0dzlkny0i5hptz16ypdjs0nq1qbg'>
+            <column datatype='integer' name='[BR]' role='measure' type='quantitative' />
+            <column caption='DateFixed' datatype='datetime' name='[Calculation_72690968838348800]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='DATEPARSE(&quot;d/M/y&quot;,&quot;1/1/&quot;+STR([yearID]))' />
+            </column>
+            <column-instance column='[nameFirst]' derivation='Attribute' name='[attr:nameFirst:nk]' pivot='key' type='nominal' />
+            <column-instance column='[nameLast]' derivation='Attribute' name='[attr:nameLast:nk]' pivot='key' type='nominal' />
+            <column caption='Name First' datatype='string' name='[nameFirst]' role='dimension' type='nominal' />
+            <column caption='Name Last' datatype='string' name='[nameLast]' role='dimension' type='nominal' />
+            <column-instance column='[BR]' derivation='None' name='[none:BR:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_72690968838348800]' derivation='None' name='[none:Calculation_72690968838348800:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[salary]' derivation='None' name='[none:salary:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[teamID]' derivation='None' name='[none:teamID:nk]' pivot='key' type='nominal' />
+            <column-instance column='[yearID]' derivation='None' name='[none:yearID:ok]' pivot='key' type='ordinal' />
+            <column caption='Salary' datatype='real' name='[salary]' role='measure' type='quantitative' />
+            <column caption='Team ID' datatype='string' name='[teamID]' role='dimension' type='nominal' />
+            <column caption='Year ID' datatype='integer' name='[yearID]' role='dimension' type='ordinal' />
+            <column-instance column='[Calculation_72690968838348800]' derivation='Year' name='[yr:Calculation_72690968838348800:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[mysql.0dzlkny0i5hptz16ypdjs0nq1qbg].[none:Calculation_72690968838348800:qk]' included-values='in-range'>
+            <min>#1992-07-28 00:00:00#</min>
+          </filter>
+          <filter class='categorical' column='[mysql.0dzlkny0i5hptz16ypdjs0nq1qbg].[none:teamID:nk]'>
+            <groupfilter function='member' level='[none:teamID:nk]' member='&quot;NYA&quot;' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[mysql.0dzlkny0i5hptz16ypdjs0nq1qbg].[none:teamID:nk]</column>
+            <column>[mysql.0dzlkny0i5hptz16ypdjs0nq1qbg].[none:Calculation_72690968838348800:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <color column='[mysql.0dzlkny0i5hptz16ypdjs0nq1qbg].[none:yearID:ok]' />
+              <tooltip column='[mysql.0dzlkny0i5hptz16ypdjs0nq1qbg].[attr:nameFirst:nk]' />
+              <tooltip column='[mysql.0dzlkny0i5hptz16ypdjs0nq1qbg].[attr:nameLast:nk]' />
+            </encodings>
+          </pane>
+          <pane id='1' y-axis-name='[mysql.0dzlkny0i5hptz16ypdjs0nq1qbg].[none:BR:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <color column='[mysql.0dzlkny0i5hptz16ypdjs0nq1qbg].[none:yearID:ok]' />
+              <tooltip column='[mysql.0dzlkny0i5hptz16ypdjs0nq1qbg].[attr:nameFirst:nk]' />
+              <tooltip column='[mysql.0dzlkny0i5hptz16ypdjs0nq1qbg].[attr:nameLast:nk]' />
+            </encodings>
+          </pane>
+          <pane id='2' y-axis-name='[mysql.0dzlkny0i5hptz16ypdjs0nq1qbg].[none:salary:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <color column='[mysql.0dzlkny0i5hptz16ypdjs0nq1qbg].[none:yearID:ok]' />
+              <tooltip column='[mysql.0dzlkny0i5hptz16ypdjs0nq1qbg].[attr:nameFirst:nk]' />
+              <tooltip column='[mysql.0dzlkny0i5hptz16ypdjs0nq1qbg].[attr:nameLast:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>([mysql.0dzlkny0i5hptz16ypdjs0nq1qbg].[none:BR:qk] + [mysql.0dzlkny0i5hptz16ypdjs0nq1qbg].[none:salary:qk])</rows>
+        <cols>[mysql.0dzlkny0i5hptz16ypdjs0nq1qbg].[yr:Calculation_72690968838348800:ok]</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows source-height='28'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card pane-specification-id='1' param='[mysql.0dzlkny0i5hptz16ypdjs0nq1qbg].[none:yearID:ok]' type='color' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[mysql.0dzlkny0i5hptz16ypdjs0nq1qbg].[none:Calculation_72690968838348800:qk]</field>
+            <field>[mysql.0dzlkny0i5hptz16ypdjs0nq1qbg].[none:nameFirst:nk]</field>
+            <field>[mysql.0dzlkny0i5hptz16ypdjs0nq1qbg].[none:nameLast:nk]</field>
+            <field>[mysql.0dzlkny0i5hptz16ypdjs0nq1qbg].[none:playerID:nk]</field>
+            <field>[mysql.0dzlkny0i5hptz16ypdjs0nq1qbg].[none:teamID:nk]</field>
+            <field>[mysql.0dzlkny0i5hptz16ypdjs0nq1qbg].[none:yearID:ok]</field>
+            <field>[mysql.0dzlkny0i5hptz16ypdjs0nq1qbg].[yr:Calculation_72690968838348800:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      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
+      YII=
+    </thumbnail>
+  </thumbnails>
+</workbook>

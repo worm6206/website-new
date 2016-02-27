@@ -9,6 +9,11 @@ h1 {
   line-height: 125%;
 }
 
+p, p>ul>li {
+  font-size: 20px;
+  line-height: 175%; 
+}
+
 html {
   position: relative;
   min-height: 100%;
@@ -83,9 +88,11 @@ rr {
 }
 
 
-h1:not(.asp) {
+h1:not(.asp) span {
     text-transform: uppercase;
-    color: #bb0000;
+    color: white;
+    background-color: #bb0000;
+    padding: 10px;
 }
 
 
@@ -135,10 +142,6 @@ span small{
 .abt {
   font-size: 26px;
   line-height: 150%;
-}
-
-a p, article p {
-  font-size: 22px;
 }
 
 .info span:not(.label){
